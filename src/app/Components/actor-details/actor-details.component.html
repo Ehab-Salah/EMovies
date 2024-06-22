@@ -1,0 +1,35 @@
+<div class="contain bg-dark text-light" >
+    <div class="details">
+        <div>
+            <img src="https://image.tmdb.org/t/p/w500/{{actorDetails.profile_path}}" alt="poster" class="poster">
+        </div>
+        <div>
+            <h1 class="text-warning fs-1 fw=bold">{{actorDetails.name}} </h1>
+            <div>
+                <div class="details">
+                    <h4 class="ms-5">popularity</h4>
+                </div>
+                <div class="details ms-5">
+                    <h4 class="ms-2 ">{{actorDetails.popularity}}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="movie" >
+    
+        @for (item of actorDetails.known_for; track $index) {
+          <div class=" m-5 text-secondary fw-bold imageItem " style="width: 15rem;" (click)="setMovieDet(item)">
+              <img src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" class="poster" alt="poster image">
+              <div class="card-body">
+                <p class="card-text">{{item.title}}</p>
+                <div class=" ">
+                  <i class="fas fa-star text-warning"></i>
+                  <p class="d-inline ">{{item.vote_average}}</p>
+                  <p class="ms-5  d-inline">{{item.release_date}}</p>
+                </div>
+              </div>
+            </div>
+        }
+      </div>
+</div>

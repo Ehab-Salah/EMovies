@@ -1,0 +1,40 @@
+.contain{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-clip: padding-box;
+  width: 100%;
+  position: fixed;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha value (0.5) to control opacity */
+    
+  }
+.details{
+    z-index: 5;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: space-around;
+
+
+}
+
+.poster{
+    width: 300px; /* Adjust the width as needed */
+    height: auto;
+    margin: 20px;
+    border-radius: 20px;
+  }

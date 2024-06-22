@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand ms-3" href="#">
+        <span class="text-info">E</span>Movies
+    </a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/Home']" routerLinkActive="active" >Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/Movies']" routerLinkActive="active" >Movies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/TvShow']" routerLinkActive="active">TV Show </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/Actors']" routerLinkActive="active">Actors</a>
+        </li>
+        @if (userLogged==false) {
+          <li class="nav-item">
+            <a class="nav-link bg-success rounded-pill text-light" [routerLink]="['/Login']" routerLinkActive="active">Login</a>
+          </li>
+        }
+        @if (userLogged==true) {
+          <li class="nav-item">
+            <a class="nav-link bg-danger rounded-pill text-light" (click)="loggout()" [routerLink]="['/Login']" routerLinkActive="active">Logout</a>
+          </li>
+        }
+        
+        
+      </ul>
+    </div>
+  </nav>

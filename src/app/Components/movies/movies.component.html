@@ -1,0 +1,47 @@
+
+<div class=" row movie bg-dark">
+
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button #popular value="popular" type="button" class="btn btn-secondary"
+         (click)="getMovies(popular.value)"
+         [ngClass]="{active: movieType==popular.value}">Popular</button>
+
+        <button #nowPlaying type="button" value="now_playing" 
+        class="btn btn-secondary" (click)="getMovies(nowPlaying.value)"
+        [ngClass]="{active: movieType==nowPlaying.value}">Now Playing</button>
+        
+        <button #topRated value="top_rated" type="button" class="btn btn-secondary" 
+        (click)="getMovies(topRated.value)"
+        [ngClass]="{active: movieType==topRated.value}">Top Rated</button>
+
+        <button #upcoming value="upcoming" type="button" class="btn btn-secondary"
+         (click)="getMovies(upcoming.value)"
+         [ngClass]="{active: movieType==upcoming.value}">Upcoming</button>
+      </div>
+
+    @for (item of movieList; track $index) {
+
+        
+    <div class=" m-3 text-secondary fw-bold imageItem " style="width: 15rem;" (click)="setMovieDet(item)">
+    <img src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" class="poster" alt="poster image">
+    <div class="card-body">
+      <p class="card-text">{{item.title}}</p>
+      <div class=" ">
+        <i class="fas fa-star text-warning"></i>
+        <p class="d-inline ">{{item.vote_average}}</p>
+        <p class="ms-5  d-inline">{{item.release_date}}</p>
+      </div>
+    </div>
+  </div>
+    }
+
+    <div class="movie">
+        <button #prev value='prev' type="button" class="btn btn-danger w-25  m-5 btn-lg"
+        (click)="changePage(prev.value)" [ngClass]="{disabled: page==1}">Prev </button>
+        <h3 class="text-light">Page: {{page}}</h3>
+        <button #next value='next' type="button" class="btn btn-success w-25 m-5 btn-lg"
+        (click)="changePage(next.value)" [ngClass]="{disabled: page==100}">Next</button>
+    </div>
+</div>
+
+

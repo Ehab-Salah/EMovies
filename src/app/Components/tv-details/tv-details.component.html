@@ -1,0 +1,29 @@
+<div class="contain bg-dark text-light" 
+[ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/w500/' + tvDetails.backdrop_path +')'}">
+    <div class="overlay"></div>
+    <div class="details">
+        <div>
+            <img src="https://image.tmdb.org/t/p/w500/{{tvDetails.poster_path}}" alt="poster" class="poster">
+        </div>
+        <div>
+            <h1 class="text-warning fs-1 fw=bold">{{tvDetails.name}} 
+            <span class="text-info">{{tvDetails.first_air_date}}</span></h1>
+            <h3>{{tvDetails.overview}}</h3>
+            <div>
+                <div class="details">
+                    <h4 class="ms-5">Vote Average</h4>
+                    <h4 class="ms-5">Popularity</h4>
+                    <h4 class="ms-5">Cote Count</h4>
+                </div>
+                <div class="details ms-5">
+                    <h4 class="ms-2 ">{{tvDetails.vote_average}}</h4>
+                    <h4 class="ms-5 ps-5">{{tvDetails.popularity}}</h4>
+                    <h4 class="ms-5 ps-5">{{tvDetails.vote_count}}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+  
+
+</div>

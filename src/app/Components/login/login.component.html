@@ -1,0 +1,87 @@
+<div class="w-100 contain bg-dark text-light d-flex  justify-content-center ">
+
+    @if (toggle=="register") {
+        <div class="register">
+            <h1>Register: </h1>
+            
+            <form [formGroup]="form" (ngSubmit)="submitForm()">
+                <div class="mb-3 ">
+                    <label for="name" class="form-label text-info">Name</label>
+                    <input  type="text" class="form-control" id="name" formControlName="name" aria-describedby="nameHelp">
+                    <div *ngIf="name?.touched">
+                        <div class="text-danger" *ngIf="name?.errors?.['required']">Name is required</div>
+                       
+                      </div>
+                  </div><div class="mb-3">
+                    <label for="email" class="form-label text-info">Email address</label>
+                    <input type="email" class="form-control" id="email" formControlName="email" aria-describedby="emailHelp">
+                    <div *ngIf="email?.touched">
+                        <div class="text-danger" *ngIf="email?.errors?.['required']">Email is required</div>
+                       <div class="text-danger" *ngIf="email?.errors?.['email']">Enter Valid Email</div>
+                      </div>
+                  </div>
+                <div class="mb-3">
+                  <label for="mobile" class="form-label text-info">Mobile</label>
+                  <input type="number" class="form-control" id="mobile" formControlName="mobile" aria-describedby="mobileHelp">
+                  <div *ngIf="mobile?.touched">
+                    <div class="text-danger" *ngIf="mobile?.errors?.['required']">Mobile is required</div>
+                    <div class="text-danger" *ngIf="mobile?.errors?.['pattern']">Enter  a valid phone number</div>
+                   
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label text-info">Password</label>
+                  <input type="password" class="form-control" id="password" formControlName="password">
+                  <div *ngIf="password?.touched">
+                    <div class="text-danger" *ngIf="password?.errors?.['required']">Password is required</div>
+                   
+                  </div>
+                </div>
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label text-info" >confirm Password</label>
+                    <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword">
+                    <div *ngIf="confirmPassword?.touched">
+                        <div class="text-danger" *ngIf="confirmPassword?.errors?.['required']">confirm Password is required</div>
+                        <div class="text-danger" *ngIf="passwordMatch==false"> Password doesn`t match</div>
+                      </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
+              </form>
+            <h3>Have Account ? <button type="button" class="btn btn-info" (click)="log()">Login Now </button></h3>
+            </div>
+            
+    }
+
+
+    @if (toggle=="login") {
+        <div class="register">
+            <h1>Login: </h1>
+            
+            <form [formGroup]="formLogin" (ngSubmit)="submitLogin()">
+                
+                  <div class="mb-3">
+                    <label for="email" class="form-label text-info">Enter Email</label>
+                    <input type="email" class="form-control" id="email" formControlName="emailLogin" aria-describedby="emailHelp">
+                    <div *ngIf="emailLogin?.touched">
+                        <div class="text-danger" *ngIf="emailLogin?.errors?.['required']">Email is required</div>
+                       <div class="text-danger" *ngIf="emailLogin?.errors?.['email']">Enter Valid Email</div>
+                      </div>
+                  </div>
+               
+                <div class="mb-3">
+                  <label for="password" class="form-label text-info">Password</label>
+                  <input type="password" class="form-control" id="password" formControlName="passwordLogin">
+                  <div *ngIf="passwordLogin?.touched">
+                    <div class="text-danger" *ngIf="passwordLogin?.errors?.['required']">Password is required</div>
+                   
+                  </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" [disabled]="formLogin.invalid">Login</button>
+              </form>
+            <h3>Creat New Account ? <button type="button" class="btn btn-info" (click)="reg()">Register Now </button></h3>
+            </div>
+            
+    }
+</div>

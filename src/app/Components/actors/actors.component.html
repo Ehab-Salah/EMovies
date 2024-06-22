@@ -1,0 +1,30 @@
+
+<div class=" row movie bg-dark">
+
+   
+
+    @for (item of actorsList; track $index) {
+
+        
+    <div class=" m-3 text-secondary fw-bold imageItem " style="width: 15rem;" (click)="setActorDet(item)">
+    <img src="https://image.tmdb.org/t/p/w500/{{item.profile_path}}" class="poster" alt="poster image">
+    <div class="card-body">
+      <p class="card-text">{{item.name}}</p>
+      <div class=" ">
+        <i class="fas fa-star text-warning"></i>
+        <p class="d-inline ">{{item.popularity}}</p>
+      </div>
+    </div>
+  </div>
+    }
+
+    <div class="movie">
+        <button #prev value='prev' type="button" class="btn btn-danger w-25  m-5 btn-lg"
+        (click)="changePage(prev.value)" [ngClass]="{disabled: page==1}">Prev </button>
+        <h3 class="text-light">Page: {{page}}</h3>
+        <button #next value='next' type="button" class="btn btn-success w-25 m-5 btn-lg"
+        (click)="changePage(next.value)" [ngClass]="{disabled: page==100}">Next</button>
+    </div>
+</div>
+
+
