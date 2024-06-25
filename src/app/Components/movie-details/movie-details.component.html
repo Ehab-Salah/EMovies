@@ -1,29 +1,31 @@
-    <div class="contain bg-dark text-light" 
-    [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/w500/' + movieDetails.backdrop_path +')'}">
-        <div class="overlay"></div>
-        <div class="details">
+<div class="contain bg-dark text-light" 
+[ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/w500/' + movieDetails.backdrop_path +')'}">
+    <div class="overlay"></div>
+    <div class="details">
+        <div >
+            <img src="https://image.tmdb.org/t/p/w500/{{movieDetails.poster_path}}" alt="poster" class="poster">
+        </div>
+        <div  >
+            <h1 class="text-warning fs-1 fw=bold">{{movieDetails.title}} 
+            <span class="text-info">{{movieDetails.release_date}}</span></h1>
+            <h3>{{movieDetails.overview}}</h3>
             <div>
-                <img src="https://image.tmdb.org/t/p/w500/{{movieDetails.poster_path}}" alt="poster" class="poster">
-            </div>
-            <div>
-                <h1 class="text-warning fs-1 fw=bold">{{movieDetails.title}} 
-                <span class="text-info">{{movieDetails.release_date}}</span></h1>
-                <h3>{{movieDetails.overview}}</h3>
-                <div>
-                    <div class="details">
-                        <h4 class="ms-5">Vote Average</h4>
-                        <h4 class="ms-5">Popularity</h4>
-                        <h4 class="ms-5">Cote Count</h4>
-                    </div>
-                    <div class="details ms-5">
-                        <h4 class="ms-2 ">{{movieDetails.vote_average}}</h4>
-                        <h4 class="ms-5 ps-5">{{movieDetails.popularity}}</h4>
-                        <h4 class="ms-5 ps-5">{{movieDetails.vote_count}}</h4>
-                    </div>
+                <div class="details">
+                    <h4 class="ms-5">Vote Average</h4>
+                    <h4 class="ms-5">Popularity</h4>
+                    <h4 class="ms-5">Cote Count</h4>
+                </div>
+                <div class="details ms-5">
+                    <h4 class="ms-2 ">{{movieDetails.vote_average}}</h4>
+                    <h4 class="ms-5 ps-5">{{movieDetails.popularity}}</h4>
+                    <h4 class="ms-5 ps-5">{{movieDetails.vote_count}}</h4>
                 </div>
             </div>
         </div>
-        
-      
-    
     </div>
+    
+  
+
+</div>
+
+
